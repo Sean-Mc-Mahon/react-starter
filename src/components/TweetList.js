@@ -2,10 +2,18 @@ import React from "react";
 //Import Components
 import Tweet from "./Tweet";
 
-const TweetList = ({ name, tweets }) => {
+const TweetList = ({ name, tweets, setTweets }) => {
   return (
     <div className="tweet-list">
-      <Tweet name={name} tweets={tweets[0]} />
+      {tweets.map((tweet) => (
+        <Tweet
+          setTweets={setTweets}
+          name={name}
+          tweet={tweet}
+          tweets={tweets}
+          key={tweet.id}
+        />
+      ))}
     </div>
   );
 };
